@@ -1,7 +1,7 @@
 &coupling
  caltype=1
  jobnum=2
- inidate=01010101
+ inidate=18500101
  init_date=00010101
  runtime0=3155673600
  runtime=86400
