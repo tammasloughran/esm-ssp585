@@ -660,8 +660,8 @@
  /
 
  &FILENATFORCE
- FILE_SCVARY  = '/g/data1a/p66/txz599/data/ancil/CMIP6/TSI_CMIP6_ESM_v2',
- FILE_VOLCTS  = '/g/data1a/p66/txz599/data/ancil/CMIP6/volcts_cmip6.dat'
+ FILE_SCVARY  = '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/TSI_CMIP6_ESM_v2',
+ FILE_VOLCTS  = '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/volcts_cmip6.dat'
  /
 
  &PPRINTXN
