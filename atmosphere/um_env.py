@@ -43,7 +43,7 @@ vars = {
 'BIOMASS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/Bio_1849_2015_ESM1.anc',
 'CHEMOXID': 'INPUT/sulpc_oxidants_N96_L38',
 'DMSCONC': 'INPUT/DMS_conc.N96',
-'NDEPFIL': '/g/data1a/p66/txz599/data/ancil/CMIP6/Ndep_1849_2015.anc',
+'NDEPFIL': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/Ndep_1849_2015.anc',
 'OCFFEMIS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/OCFF_1849_2015_ESM1.anc',
 'OZONE': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/ozone_1849_2015_ESM1.anc',
 'SOOTEMIS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/BC_hi_1849_2015_ESM1.anc',
