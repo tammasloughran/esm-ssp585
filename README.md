@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/coecms/esm-pre-industrial.svg?branch=master)](https://travis-ci.org/coecms/esm-pre-industrial)
-
 # ACCESS-ESM with **payu**
 
 ## Quickstart Guide
