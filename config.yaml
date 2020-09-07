@@ -42,7 +42,7 @@ collate:
    restart: true
    mem: 4GB
 
-restart: /g/data/access/payu/access-esm/restart/historical
+restart: /g/data/access/payu/access-esm/restart/pre-industrial
 
 calendar:
     start:
