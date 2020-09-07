@@ -57,6 +57,9 @@ calendar:
 
 runspersub: 1
 
+userscripts:
+    run: ./scripts/update_landuse.py # Update land use after the run
+
 stacksize: unlimited
 
 qsub_flags: -W umask=027
