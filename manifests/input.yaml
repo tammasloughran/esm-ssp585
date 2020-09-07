@@ -294,7 +294,7 @@ work/coupler/rmp_cice_to_um1t_CONSERV_FRACNNEI.nc:
 work/coupler/rmp_cice_to_um1u_CONSERV_FRACNNEI.nc:
   fullpath: /g/data/access/payu/access-esm/input/pre-industrial/coupler/rmp_cice_to_um1u_CONSERV_FRACNNEI.nc
   hashes:
-    binhash: 69481becc132d15aee41e048993d8665
+    binhash: 31987aed0d1663a2accf622c45d48c13
     md5: 6fc856e7c2014e20903a01cdd61f4f2c
 work/coupler/rmp_cice_to_um1v_CONSERV_FRACNNEI.nc:
   fullpath: /g/data/access/payu/access-esm/input/pre-industrial/coupler/rmp_cice_to_um1v_CONSERV_FRACNNEI.nc
