@@ -12,8 +12,8 @@ Create a directory in which to keep the model configurations:
 
     mkdir -p ~/access-esm
     cd ~/access-esm
-    git clone https://github.com/coecms/esm-pre-industrial
-    cd esm-pre-industrial
+    git clone https://github.com/coecms/esm-historical
+    cd esm-historical
 
 Run the model:
 
@@ -118,10 +118,10 @@ Create a directory in your home directory to keep all the Control Directories yo
 
 Then clone the most recent version of the ACCESS-ESM control directory:
 
-    git clone https://github.com/coecms/esm-pre-industrial
-    cd esm-pre-industrial
+    git clone https://github.com/coecms/esm-historical
+    cd esm-historical
 
-(Note: Currently we only have the pre-industrial model set up, other versions will follow later.)
+(Note: Currently we only have the historical model set up, other versions will follow later.)
 
 ### Setting up the Master Configuration file.
 
@@ -129,7 +129,7 @@ Open the `config.yaml` file with your preferred text editor.
 
 Let's have a closer look at the parts:
 
-    jobname: pre-industrial
+    jobname: historical
     queue: normal
     walltime: 20:00:00
 
@@ -153,7 +153,7 @@ The main model. This mainly tells **payu** which driver to use. **payu** knows t
           ncpus: 192
           exe: /short/public/access-esm/payu/bin/csiro/um_hg3.exe-20190129_15
           input:
-            - /short/public/access-esm/payu/input/pre-industrial/atmosphere
+            - /short/public/access-esm/payu/input/historical/atmosphere
 
         - name: ocean
           model: mom
@@ -161,7 +161,7 @@ The main model. This mainly tells **payu** which driver to use. **payu** knows t
           exe: /short/public/access-esm/payu/bin/coe/fms_ACCESS-CM.x
           input:
             - /short/public/access-esm/payu/input/common/ocean
-            - /short/public/access-esm/payu/input/pre-industrial/ocean
+            - /short/public/access-esm/payu/input/historical/ocean
 
         - name: ice
           model: cice
@@ -200,14 +200,14 @@ the `restart: true` option means the restart files from the **previous** run are
 collated. This saves space and cuts down the number of files which makes more efficient
 use of storage and better for archiving in the future.
 
-    restart: /short/public/access-esm/payu/restart/pre-industrial
+    restart: /short/public/access-esm/payu/restart/historical
 
 This is the location of the warm restart files.
 **payu** will use the restart files in there for the initial run.
 
     calendar:
         start:
-            year: 101
+            year: 1850
             month: 1
             days: 1
 
