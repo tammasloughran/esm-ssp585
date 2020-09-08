@@ -14,7 +14,7 @@ submodels:
       ncpus: 192
       exe: /scratch/w35/saw562/work/HI-24/um7.3x
       input:
-        - /home/562/saw562/scratch/access-esm/esm-historical/inputs/atmosphere
+        - /g/data/access/payu/access-esm/input/historical/atmosphere
         - /g/data/access/payu/access-esm/input/pre-industrial/atmosphere
 
     - name: ocean
