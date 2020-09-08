@@ -20,7 +20,7 @@ import os
 import shutil
 from glob import glob
 
-landuse = xarray.open_dataset('atmosphere/INPUT/luh2_v2h_states_cable_N96.nc').cable_fraction
+landuse = xarray.open_dataset('atmosphere/INPUT/cableCMIP6_LC_1850-2015.nc').fraction
 
 class ReplaceOp(mule.DataOperator):
     def __init__(self, da):
@@ -48,8 +48,8 @@ print(f'Updating land use for year {year}')
 out = mf.copy()
 out.validate = lambda *args, **kwargs: True
 
-set_current_landuse = ReplaceOp(landuse.sel(time=year))
-set_previous_landuse = ReplaceOp(landuse.sel(time=year-1))
+set_current_landuse = ReplaceOp(landuse.sel(time=str(year)))
+set_previous_landuse = ReplaceOp(landuse.sel(time=str(year-1)))
 
 for f in mf.fields:
     if f.lbuser4 == stash_landfrac:
