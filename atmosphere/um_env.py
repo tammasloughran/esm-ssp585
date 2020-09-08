@@ -6,7 +6,7 @@ vars = {
 'FASTRUN': 'true',
 'IDEALISE': '',
 'PAREXE': 'parexe',
-'PRINT_STATUS': 'PrStatus_Debug',
+'PRINT_STATUS': 'PrStatus_Oper',
 'RPSEED': '',
 'RUNID': 'HI-24',
 'TYPE': 'NRUN',
