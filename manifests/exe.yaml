@@ -2,17 +2,17 @@ format: yamanifest
 version: 1.0
 ---
 work/atmosphere/um7.3x:
-  fullpath: /g/data/access/payu/access-esm/bin/coe/um7.3x
+  fullpath: /scratch/w35/saw562/work/HI-24/um7.3x
   hashes:
-    binhash: af9dd8d2fd8b954452521f509c0cd5f2
+    binhash: c4bebe90cc7393c78400b4c97b53e216
     md5: b940be586b14738d766a345fda25cc4c
 work/ice/cicexx:
-  fullpath: /g/data/access/payu/access-esm/bin/coe/cicexx
+  fullpath: /scratch/w35/saw562/work/HI-24/cicexx
   hashes:
-    binhash: 612c5f22405c074531e5d415bdc32a02
+    binhash: aebc4d87b4ab5b7b1ef1db3cd2631de1
     md5: 2d8befa0957c1196f8ba387f36b7c1ef
 work/ocean/mom5xx:
-  fullpath: /g/data/access/payu/access-esm/bin/coe/mom5xx
+  fullpath: /scratch/w35/saw562/work/HI-24/mom5xx
   hashes:
-    binhash: 892a661fe3c35d2e7add6b2fbf041984
+    binhash: 4ac1c3783278f377308f67e7341af479
     md5: 9b3592016605846dfda306a81ed9579c
