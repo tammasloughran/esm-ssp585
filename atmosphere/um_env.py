@@ -40,13 +40,13 @@ vars = {
 
 # Ancillary files
 'ARCLBIOG': 'INPUT/biogenic_351sm.N96L38',
-'BIOMASS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/Bio_1849_2015_ESM1.anc',
+'BIOMASS': 'INPUT/Bio_1849_2015_ESM1.anc',
 'CHEMOXID': 'INPUT/sulpc_oxidants_N96_L38',
 'DMSCONC': 'INPUT/DMS_conc.N96',
-'NDEPFIL': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/Ndep_1849_2015.anc',
-'OCFFEMIS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/OCFF_1849_2015_ESM1.anc',
-'OZONE': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/ozone_1849_2015_ESM1.anc',
-'SOOTEMIS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/BC_hi_1849_2015_ESM1.anc',
-'SULPEMIS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/scycl_1849_2015_ESM1_v4.anc',
+'NDEPFIL': 'INPUT/Ndep_1849_2015.anc',
+'OCFFEMIS': 'INPUT/OCFF_1849_2015_ESM1.anc',
+'OZONE': 'INPUT/ozone_1849_2015_ESM1.anc',
+'SOOTEMIS': 'INPUT/BC_hi_1849_2015_ESM1.anc',
+'SULPEMIS': 'INPUT/scycl_1849_2015_ESM1_v4.anc',
 'VEGINIT': 'INPUT/cable_vegfunc_N96.anc',
 }
