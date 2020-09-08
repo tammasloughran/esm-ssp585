@@ -47,6 +47,6 @@ vars = {
 'OCFFEMIS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/OCFF_1849_2015_ESM1.anc',
 'OZONE': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/ozone_1849_2015_ESM1.anc',
 'SOOTEMIS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/BC_hi_1849_2015_ESM1.anc',
-'SULPEMIS': 'INPUT/scycl_1850_ESM1_v4.anc',
+'SULPEMIS': '/scratch/w35/saw562/work/HI-24/ATM_RUNDIR/scycl_1849_2015_ESM1_v4.anc',
 'VEGINIT': 'INPUT/cable_vegfunc_N96.anc',
 }

@@ -27,6 +27,9 @@ mf = mule.DumpFile.from_file(restart)
 mf.fixed_length_header.t1_year = year
 mf.fixed_length_header.t2_year = year
 
+for f in mf.fields:
+    f.lbyr = year
+
 mf.validate = lambda *args, **kwargs: True
 
 temp = tempfile.NamedTemporaryFile()
