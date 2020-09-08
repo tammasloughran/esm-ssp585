@@ -1,7 +1,7 @@
 jobname: historical
 queue: normal
 #walltime: 3:10:00
-walltime: 0:05:00
+walltime: 0:02:00
 project: w35
 
 # note: if laboratory is relative path, it is relative to /scratch/$PROJECT/$USER
