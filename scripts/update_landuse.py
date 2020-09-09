@@ -41,7 +41,7 @@ stash_landfrac_lastyear = 835
 
 mf = mule.DumpFile.from_file(restart)
 
-year = mf.fixed_length_header.t1_year
+year = mf.fixed_length_header.t2_year
 
 print(f'Updating land use for year {year}')
 
