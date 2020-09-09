@@ -1,6 +1,7 @@
 jobname: historical
 queue: normal
-walltime: 3:10:00
+#walltime: 3:10:00
+walltime: 0:05:00
 project: w35
 
 # note: if laboratory is relative path, it is relative to /scratch/$PROJECT/$USER
@@ -58,7 +59,8 @@ calendar:
 runspersub: 1
 
 userscripts:
-    run: ./scripts/update_landuse.py # Update land use after the run
+    setup: ./scripts/pre.sh # Update land use in the start dump
+    run: ./scripts/post.sh # Update land use after the run
 
 stacksize: unlimited
 

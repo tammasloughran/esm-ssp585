@@ -18,9 +18,10 @@ import mule
 import xarray
 import os
 import shutil
-from glob import glob
+import sys
+import tempfile
 
-landuse = xarray.open_dataset('atmosphere/INPUT/cableCMIP6_LC_1850-2015.nc').fraction
+landuse = xarray.open_dataset('work/atmosphere/INPUT/cableCMIP6_LC_1850-2015.nc').fraction
 
 class ReplaceOp(mule.DataOperator):
     def __init__(self, da):
@@ -33,8 +34,7 @@ class ReplaceOp(mule.DataOperator):
         return self.da.isel(cable_type = source.lbuser5 - 1).data
 
 
-# The last restart of the run
-restart = sorted(glob('atmosphere/aiihca.da*'))[-1]
+restart = sys.argv[1]
 
 stash_landfrac = 216
 stash_landfrac_lastyear = 835
@@ -60,7 +60,7 @@ for f in mf.fields:
 
     out.fields.append(f)
 
-tmpfile = os.path.join(os.environ['TMPDIR'], 'updated_landuse.astart')
-out.to_file(tmpfile)
+temp = tempfile.NamedTemporaryFile()
+out.to_file(temp.name)
 
-shutil.copy(tmpfile, restart)
+shutil.copy(temp.name, restart)

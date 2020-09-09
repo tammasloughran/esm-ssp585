@@ -45,12 +45,17 @@ for f in $csiro_source/ice/*-${pyearend}; do
 done
 cp -v $csiro_source/ice/iced.${yearstart} $payu_restart/ice/
 
+# Update ocean start time
 cat > $payu_restart/ocean/ocean_solo.res << EOF
     3
     1 1 1 0 0 0
     $start_year 1 1 0 0 0
 EOF
 
+# Update atmos start time
+python scripts/update_um_year.py $start_year $payu_restart/atmosphere/restart_dump.astart > /dev/null
+
+# Update ice start time
 cat > $payu_restart/ice/cice_in.nml << EOF
 &setup_nml
 istep0=0,
@@ -66,6 +71,12 @@ runtime=0
 /
 EOF
 
-python scripts/update_um_year.py $start_year $payu_restart/atmosphere/restart_dump.astart > /dev/null
+ncatted -a units,time,o,c,"seconds since ${start_year}-01-01 00:00:00" $payu_restart/ice/mice.nc
+
+secs_realyr=$(python -c "from datetime import date; d=(date(1850,1,1)-date(1,1,1)); print(d.days*24*60*60)")
+~access/data/ACCESS_CMIP5/utils/cicedumpdatemodify.py -i $payu_restart/ice/iced.${pyearend} -o $payu_restart/ice/iced.${start_year} --istep0=0 --time=${secs_realyr}. --time_forc=0.
+cat > $payu_restart/ice/ice.restart_file << EOF
+iced.${start_year}
+EOF
 
 payu sweep
