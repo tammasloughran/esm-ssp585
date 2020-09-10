@@ -2,7 +2,6 @@
 
 ## Quickstart Guide
 
-
 Get payu:
 
     module use /g/data3/hh5/public/modules
@@ -15,6 +14,10 @@ Create a directory in which to keep the model configurations:
     git clone https://github.com/coecms/esm-historical
     cd esm-historical
 
+Set up a warm start from a CSIRO run (see the script for details):
+
+    ./warm_start.sh
+
 Run the model:
 
     payu run
@@ -26,6 +29,8 @@ Check the output:
 The default configuration is a 1 year per model run. To run the model for, say, 25 years:
 
     payu run -n 25
+
+With default settings, 1 model year cost is ~ 1100 SU, with a walltime of 1 hour 20 minutes
 
 **Note:**
 We have noticed that some modules interfere with the git commands, for example `matlab/R2018a`.
