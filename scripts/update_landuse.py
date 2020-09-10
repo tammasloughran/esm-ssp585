@@ -45,11 +45,14 @@ year = mf.fixed_length_header.t2_year
 
 print(f'Updating land use for year {year}')
 
+if year not in time.dt.year:
+    raise Exception("Year out of bounds")
+
 out = mf.copy()
 out.validate = lambda *args, **kwargs: True
 
-set_current_landuse = ReplaceOp(landuse.sel(time=str(year)))
-set_previous_landuse = ReplaceOp(landuse.sel(time=str(year-1)))
+set_current_landuse = ReplaceOp(landuse.sel(time=f'{year:04d}'))
+set_previous_landuse = ReplaceOp(landuse.sel(time=f'{year-1:04d}'))
 
 for f in mf.fields:
     if f.lbuser4 == stash_landfrac:
