@@ -10,7 +10,7 @@ vars = {
 'RPSEED': '',
 'RUNID': 'HI-24',
 'TYPE': 'NRUN',
-'UM_ATM_NPROCX': '20',
+'UM_ATM_NPROCX': '12',
 'UM_ATM_NPROCY': '12',
 'UM_NAM_MAX_SECONDS': '300',
 'UM_NPES': '192',
