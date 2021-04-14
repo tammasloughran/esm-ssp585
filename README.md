@@ -295,3 +295,5 @@ To automatically submit several runs (and to take advantage of the `runspersub` 
 ## Finding the Output
 
 The output is automatically copied to the `archive/outputXXX` directories.
+
+**Warning**: This directory is a link to your laboratory (probably on scratch), so while it might *seem* that the output files are created twice, they are not. Deleting them from one location also removes them from the other. Do not do that if you want to keep the data.
