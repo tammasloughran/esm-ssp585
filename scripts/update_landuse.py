@@ -31,7 +31,7 @@ class ReplaceOp(mule.DataOperator):
         return source
 
     def transform(self, source, result):
-        return self.da.isel(cable_type = source.lbuser5 - 1).data
+        return self.da.isel(vegtype = source.lbuser5 - 1).data
 
 
 restart = sys.argv[1]
@@ -45,7 +45,7 @@ year = mf.fixed_length_header.t2_year
 
 print(f'Updating land use for year {year}')
 
-if year not in time.dt.year:
+if year not in landuse.time.dt.year:
     raise Exception("Year out of bounds")
 
 out = mf.copy()
