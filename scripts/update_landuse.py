@@ -39,6 +39,7 @@ restart = sys.argv[1]
 stash_landfrac = 216
 stash_landfrac_lastyear = 835
 
+shutil.copy(restart, restart+'.orig')
 mf = mule.DumpFile.from_file(restart)
 
 year = mf.fixed_length_header.t2_year
