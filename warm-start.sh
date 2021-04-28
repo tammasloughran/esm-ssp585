@@ -35,7 +35,12 @@ mkdir $payu_restart/{atmosphere,ocean,ice,coupler}
 yearstart="$(printf '%04d' $source_year)0101"
 pyearend="$(printf '%04d' $(( source_year - 1 )) )1231"
 
-cp -v $csiro_source/atm/${expname}.astart-${yearstart} $payu_restart/atmosphere/restart_dump.astart
+cp -v $csiro_source/atm/${expname}.astart-${yearstart} $payu_restart/atmosphere/restart_dump.orig
+
+# Setup for land use
+cdo selyear,1851 -chname,fraction,field1391 work/atmosphere/INPUT/cableCMIP6_LC_1850-2015.nc $payu_restart/atmosphere/land_frac.nc
+python scripts/update_cable_vegfrac.py -i $payu_restart/atmosphere/restart_dump.orig -o $payu_restart/atmosphere/restart_dump.astart -f $payu_restart/atmosphere/land_frac.nc -v
+
 
 for f in $csiro_source/cpl/*-${pyearend}; do
     cp -v $f $payu_restart/coupler/$(basename ${f%-*})
@@ -50,7 +55,7 @@ for f in $csiro_source/ice/*-${pyearend}; do
 done
 cp -v $csiro_source/ice/iced.${yearstart} $payu_restart/ice/
 
-EOF
+scripts/set_restart_year.sh $start_year
 
 # Cleanup
 payu sweep
