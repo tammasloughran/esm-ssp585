@@ -63,7 +63,6 @@ runspersub: 1
 
 userscripts:
     setup: ./scripts/pre.sh # Update land use in the start dump
-    run: ./scripts/post.sh # Update land use after the run
 
 stacksize: unlimited
 
