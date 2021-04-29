@@ -1,7 +1,10 @@
 #!/bin/bash
-set -eu
+
+module use /g/data/hh5/public/modules
+module load conda/analysis3
 
 pwd
+set -eu
 
 # Update land use field to be correct for the current date in the current restart file
 
