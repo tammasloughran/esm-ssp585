@@ -39,18 +39,20 @@ restart = sys.argv[1]
 stash_landfrac = 216
 stash_landfrac_lastyear = 835
 
-shutil.copy(restart, restart+'.orig')
 mf = mule.DumpFile.from_file(restart)
 
-year = mf.fixed_length_header.t2_year - 1
+year = mf.fixed_length_header.t2_year
 
 print(f'Updating land use for year {year}')
+
+if year not in landuse.time.dt.year:
+    raise Exception("Year out of bounds")
 
 out = mf.copy()
 out.validate = lambda *args, **kwargs: True
 
-set_current_landuse = ReplaceOp(landuse.sel(time=f'{year:04d}', method='nearest'))
-set_previous_landuse = ReplaceOp(landuse.sel(time=f'{year-1:04d}', method='nearest'))
+set_current_landuse = ReplaceOp(landuse.sel(time=f'{year:04d}'))
+set_previous_landuse = ReplaceOp(landuse.sel(time=f'{year-1:04d}'))
 
 for f in mf.fields:
     if f.lbuser4 == stash_landfrac:
