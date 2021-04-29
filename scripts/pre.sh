@@ -4,8 +4,9 @@ source  /etc/profile.d/modules.sh
 module use /g/data/hh5/public/modules
 module load conda/analysis3
 
-pwd
 set -eu
+pwd
+ls work
 
 # Update land use field to be correct for the current date in the current restart file
 mv work/atmosphere/restart_dump.astart work/atmosphere/restart_dump.astart.orig
