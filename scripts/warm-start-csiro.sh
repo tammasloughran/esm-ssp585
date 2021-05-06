@@ -13,9 +13,6 @@ source $SCRIPTDIR/utils.sh
 # Start year of this run - read from config.yaml
 start_year=$(get_payu_start_year)
 
-# Set the restart year in the atmosphere namelist
-set_um_start_year $start_year
-
 # =====================================================================
 
 # Setup the restart directory

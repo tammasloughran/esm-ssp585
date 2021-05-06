@@ -26,8 +26,16 @@ set -eu
 trap "echo Error in set_restart_year.sh" ERR
 export UMDIR=~access/umdir
 
+# Load some helper scripts
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPTDIR/utils.sh
+
 # Starting year
 start_year=$1
+
+# Set the restart year in the atmosphere and ice namelists
+set_um_start_year $start_year
+set_cice_start_year $start_year
 
 # Most recent restart directory
 payu_restart=$(ls -d ./archive/restart* | sort -t t -k 3 -n | tail -n 1)
@@ -91,7 +99,7 @@ EOF
 ncatted -a units,time,o,c,"seconds since ${start_year}-01-01 00:00:00" $payu_restart/ice/mice.nc
 
 # Seconds between init_date and inidate
-secs_realyr=$(python -c "from datetime import date; d=(date(${start_year},1,1)-date(1,1,1)); print(d.days*24*60*60)")
+secs_realyr=0
 
 ice_restart=$(ls $payu_restart/ice/iced.*)
 mv $ice_restart ${ice_restart}.orig
