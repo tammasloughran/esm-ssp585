@@ -14,7 +14,6 @@ start_year=$(get_payu_start_year)
 
 # Set the restart year in the namelists
 set_um_start_year $start_year
-set_cice_start_year $start_year
 
 # =====================================================================
 
