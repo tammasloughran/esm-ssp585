@@ -29,8 +29,8 @@ set_um_start_year() {
     python <<EOF
 import f90nml
 nml = f90nml.read('atmosphere/namelists')
-nml['NLASTCALL']['MODEL_BASIS_TIME'][0] = $start_year
-nml.write('atmosphere/namelists')
+nml['NLSTCALL']['MODEL_BASIS_TIME'][0] = $start_year
+nml.write('atmosphere/namelists', force=True)
 EOF
 }
 
@@ -41,6 +41,6 @@ import f90nml
 nml = f90nml.read('ice/input_ice.nml')
 nml['coupling']['inidate'] = ${start_year}0101
 nml['coupling']['init_date'] = ${start_year}0101
-nml.write('ice/input_ice.nml')
+nml.write('ice/input_ice.nml', force=True)
 EOF
 }

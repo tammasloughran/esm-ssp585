@@ -22,6 +22,7 @@ module load conda/analysis3
 module load nco
 
 set -eu
+trap "echo Error in set_restart_year.sh" ERR
 
 # Sets the start date in the most recent restart directory
 

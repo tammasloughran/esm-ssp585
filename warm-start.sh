@@ -9,9 +9,8 @@ start_year=1850
 # CSIRO job to copy the warm start from
 project=p66
 user=cm2704
-expname=PI-01
-source_year=541
-
+export expname=PI-01
+export source_year=541
 export csiro_source=/g/data/$project/$user/archive/$expname/restart
 
 scripts/warm-start-csiro.sh
