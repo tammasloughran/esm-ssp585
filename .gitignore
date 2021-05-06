@@ -1,0 +1,6 @@
+.*.sw?
+/archive
+/work
+access.err
+access.out
+__pycache__
