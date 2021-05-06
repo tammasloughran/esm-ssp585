@@ -15,6 +15,7 @@
 #  See the License for the specific language governing permissions and
 #  limitations under the License.
 
+# Sets the start year in each model component
 
 source /etc/profile.d/modules.sh
 module use /g/data/hh5/public/modules
@@ -23,13 +24,12 @@ module load nco
 
 set -eu
 trap "echo Error in set_restart_year.sh" ERR
-
-# Sets the start date in the most recent restart directory
-
 export UMDIR=~access/umdir
 
+# Starting year
 start_year=$1
 
+# Most recent restart directory
 payu_restart=$(ls -d ./archive/restart* | sort -t t -k 3 -n | tail -n 1)
 
 echo "Setting restart year in ${payu_restart} to ${start_year}"
@@ -39,21 +39,21 @@ if [ ! -d $payu_restart/ocean ]; then
     exit 1
 fi
 
-# Update ocean start time
+# Update ocean start time - read from a text file
 cat > $payu_restart/ocean/ocean_solo.res << EOF
     3
     1 1 1 0 0 0
     $start_year 1 1 0 0 0
 EOF
 
-# Update atmos start time
+# Update atmos start time - field in the restart file
 python scripts/update_um_year.py $start_year $payu_restart/atmosphere/restart_dump.astart 2> /dev/null
 
 cat > $payu_restart/atmosphere/um.res.yaml << EOF
 end_date: $(printf %04d $start_year)-01-01 00:00:00
 EOF
 
-# Update ice start time
+# Clear ice step count
 cat > $payu_restart/ice/cice_in.nml << EOF
 &setup_nml
 istep0=0,
@@ -62,6 +62,9 @@ dt=3600,
 /
 EOF
 
+# Get the number of seconds since the run start date in ice/input_ice.nml
+# init_date is the initial date of the experiment
+# inidate is the date of the current run
 runtime0=$(python <<EOF
 import f90nml
 import sys
@@ -76,6 +79,7 @@ print(int(diff.total_seconds()))
 EOF
 )
 
+# Put this in the coupling namelist - used by Payu to generate Oasis namcouple file
 cat > $payu_restart/ice/input_ice.nml << EOF
 &coupling
 runtime0=$runtime0
@@ -83,11 +87,14 @@ runtime=0
 /
 EOF
 
+# Set the date in the cice netcdf file
 ncatted -a units,time,o,c,"seconds since ${start_year}-01-01 00:00:00" $payu_restart/ice/mice.nc
 
-secs_realyr=$(python -c "from datetime import date; d=(date(1850,1,1)-date(1,1,1)); print(d.days*24*60*60)")
+# Seconds between init_date and inidate
+secs_realyr=$(python -c "from datetime import date; d=(date(${start_year},1,1)-date(1,1,1)); print(d.days*24*60*60)")
 
 ice_restart=$(ls $payu_restart/ice/iced.*)
 mv $ice_restart ${ice_restart}.orig
 
-scripts/cicedumpdatemodify.py -i ${ice_restart}.orig -o $payu_restart/ice/iced.${start_year} --istep0=0 --time=${secs_realyr}. --time_forc=0.
+# Set the date in the cice binary restart file
+scripts/cicedumpdatemodify.py -i ${ice_restart}.orig -o $payu_restart/ice/iced.${start_year}0101 --istep0=0 --time=${secs_realyr}. --time_forc=0.

@@ -6,13 +6,14 @@ trap "echo Error in warm_start_csiro.sh" ERR
 
 echo "Sourcing restarts from ${csiro_source} / year ${source_year}"
 
+# Load some helper scripts
 SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
 source $SCRIPTDIR/utils.sh
 
-# Start year of this run - should match config.yaml & the model namelists
+# Start year of this run - read from config.yaml
 start_year=$(get_payu_start_year)
 
-# Set the restart year in the namelists
+# Set the restart year in the atmosphere namelist
 set_um_start_year $start_year
 
 # =====================================================================
@@ -36,6 +37,7 @@ mkdir $payu_restart/{atmosphere,ocean,ice,coupler}
 yearstart="$(printf '%04d' $source_year)0101"
 pyearend="$(printf '%04d' $(( source_year - 1 )) )1231"
 
+# Copy in the restart files from the CSIRO run
 cp -v $csiro_source/atm/${expname}.astart-${yearstart} $payu_restart/atmosphere/restart_dump.astart
 
 for f in $csiro_source/cpl/*-${pyearend}; do
@@ -51,7 +53,8 @@ for f in $csiro_source/ice/*-${pyearend}; do
 done
 cp -v $csiro_source/ice/iced.${yearstart} $payu_restart/ice/
 
+# Set the year of each model component to the run start year
 $SCRIPTDIR/set_restart_year.sh $start_year
 
-# Cleanup
+# Cleanup to be ready to run the model
 payu sweep
