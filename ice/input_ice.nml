@@ -2,7 +2,7 @@
  caltype=1
  jobnum=2
  inidate=18500101
- init_date=18500101
+ init_date=00010101
  runtime0=3155673600
  runtime=86400
  dt_cpl_ai=10800
