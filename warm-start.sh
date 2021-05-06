@@ -1,20 +1,32 @@
 #!/bin/bash
 
-# Initialise an ACCESS-ESM Payu run from a CSIRO experiment
+# Initialise an ACCESS-ESM Payu run from another experiment
 #
 # This script sets values specific to the experiment, it then calls the common
-# 'warm-start' from the scripts directory
+# 'warm-start' from the scripts directory which performs the copy and sets the
+# start dates for all the component models to the date in config.yaml
 set -eu
 
-# Start year of this run - should match config.yaml & the model namelists
-start_year=1850
+# Either CSIRO or PAYU
+source=CSIRO
 
-# CSIRO job to copy the warm start from
-project=p66
-user=cm2704
-export expname=PI-01            # Source experiment - PI pre-industrial, HI historical
-export source_year=541          # Change this to create different ensemble members
-export csiro_source=/g/data/$project/$user/archive/$expname/restart
+if [ $source == "CSIRO" ]; then
 
-# Call the main warm-start script
-scripts/warm-start-csiro.sh
+    # CSIRO job to copy the warm start from
+    project=p66
+    user=cm2704
+    export expname=PI-01            # Source experiment - PI pre-industrial, HI historical
+    export source_year=541          # Change this to create different ensemble members
+    export csiro_source=/g/data/$project/$user/archive/$expname/restart
+
+    # Call the main warm-start script
+    scripts/warm-start-csiro.sh
+
+else
+    
+    # Payu restart directory to copy
+    export payu_source=/scratch/w35/saw562/access-esm/archive/esm-historical/restart001
+
+    # Call the main warm-start script
+    scripts/warm-start-payu.sh
+fi
