@@ -3,16 +3,16 @@
 # Initialise an ACCESS-ESM Payu run from a CSIRO experiment
 set -eu
 
+echo "Sourcing restarts from ${csiro_source}"
+
+SCRIPTDIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )"
+source $SCRIPTDIR/utils.sh
+
 # Start year of this run - should match config.yaml & the model namelists
-start_year=1850
+start_year=$(get_payu_start_year)
 
-# CSIRO job to copy the warm start from
-project=p66
-user=cm2704
-expname=PI-01
-source_year=541
-
-csiro_source=/g/data/$project/$user/archive/$expname/restart
+# Set the restart year
+set_um_start_year $start_year
 
 # =====================================================================
 
@@ -37,11 +37,6 @@ pyearend="$(printf '%04d' $(( source_year - 1 )) )1231"
 
 cp -v $csiro_source/atm/${expname}.astart-${yearstart} $payu_restart/atmosphere/restart_dump.orig
 
-# Setup for land use
-cdo selyear,1851 -chname,fraction,field1391 work/atmosphere/INPUT/cableCMIP6_LC_1850-2015.nc $payu_restart/atmosphere/land_frac.nc
-python scripts/update_cable_vegfrac.py -i $payu_restart/atmosphere/restart_dump.orig -o $payu_restart/atmosphere/restart_dump.astart -f $payu_restart/atmosphere/land_frac.nc -v
-
-
 for f in $csiro_source/cpl/*-${pyearend}; do
     cp -v $f $payu_restart/coupler/$(basename ${f%-*})
 done
@@ -55,7 +50,7 @@ for f in $csiro_source/ice/*-${pyearend}; do
 done
 cp -v $csiro_source/ice/iced.${yearstart} $payu_restart/ice/
 
-scripts/set_restart_year.sh $start_year
+$SCRIPTDIR/set_restart_year.sh $start_year
 
 # Cleanup
 payu sweep
