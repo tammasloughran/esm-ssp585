@@ -101,7 +101,7 @@ ncatted -a units,time,o,c,"seconds since ${start_year}-01-01 00:00:00" $payu_res
 # Seconds between init_date and inidate
 secs_realyr=0
 
-ice_restart=$(ls $payu_restart/ice/iced.*)
+ice_restart=$(ls $payu_restart/ice/iced.*0101)
 mv $ice_restart ${ice_restart}.orig
 
 # Set the date in the cice binary restart file
