@@ -51,8 +51,9 @@ experiment run by CSIRO (requires membership in the p66 group), or it can be
 started from another Payu experiment.
 
 To perform a warm start, edit the file `warm-start.sh` to set the experiment
-directory to start from. For CSIRO jobs you must also specify the date of the
-run to start from, for Payu jobs each restart directory holds a different year.
+directory to start from and then run the script. For CSIRO jobs you must also
+specify the date of the run to start from, for Payu jobs each restart directory
+holds a different year.
 
 ## Understanding **payu**
 
