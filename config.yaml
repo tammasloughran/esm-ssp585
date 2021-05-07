@@ -1,8 +1,6 @@
 jobname: historical
 queue: normal
 walltime: 1:40:00
-#walltime: 0:02:00
-project: w35
 
 # note: if laboratory is relative path, it is relative to /scratch/$PROJECT/$USER
 laboratory: access-esm
@@ -19,7 +17,6 @@ submodels:
 
     - name: ocean
       model: mom
-      #ncpus: 228
       ncpus: 180
       exe: /g/data/access/payu/access-esm/bin/coe/mom5xx
       input:

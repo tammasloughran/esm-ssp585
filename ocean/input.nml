@@ -197,7 +197,6 @@
 /
 
  &ocean_model_nml
-      #layout = 19,12
       layout = 18,10
       time_tendency='twolevel'
       vertical_coordinate='zstar'
