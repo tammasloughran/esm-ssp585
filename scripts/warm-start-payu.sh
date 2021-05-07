@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Initialise an ACCESS-ESM Payu run from a Payu experiment
+# This should be run from the top-level warm-start.sh script, which sets up the $payu_source environment variable
+
 set -eu
 trap "echo Error in warm_start_payu.sh" ERR
 

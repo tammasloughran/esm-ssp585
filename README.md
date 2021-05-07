@@ -36,6 +36,24 @@ With default settings, 1 model year cost is ~ 1100 SU, with a walltime of 1 hour
 We have noticed that some modules interfere with the git commands, for example `matlab/R2018a`.
 If you are running into issues during the installation, it might be a good idea to `module purge` first before starting again.
 
+## Warm Starts
+
+The model is normally 'warm started' from the restart files of another
+configuration. For instance the SSP experiments are started from the end of the
+historical experiment, and in turn the historical experiment is started from
+the pre-industrial control experiment (different ensemble members are created
+by starting from different piControl years). Starting the experiment from
+scratch requires a long period of spinup to ensure stability and should be
+avoided if possible.
+
+There are two options for restarting the model. It can be started from an
+experiment run by CSIRO (requires membership in the p66 group), or it can be
+started from another Payu experiment.
+
+To perform a warm start, edit the file `warm-start.sh` to set the experiment
+directory to start from. For CSIRO jobs you must also specify the date of the
+run to start from, for Payu jobs each restart directory holds a different year.
+
 ## Understanding **payu**
 
 **payu** was designed to help users of the NCI system run climate models.

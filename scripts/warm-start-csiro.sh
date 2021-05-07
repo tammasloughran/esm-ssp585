@@ -1,6 +1,8 @@
 #!/bin/bash
 
 # Initialise an ACCESS-ESM Payu run from a CSIRO experiment
+# This should be run from the top-level warm-start.sh script, which sets up the $csiro_source etc. environment variables
+
 set -eu
 trap "echo Error in warm_start_csiro.sh" ERR
 
