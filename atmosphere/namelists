@@ -104,7 +104,7 @@
     expt_alias = 'ALIAS   '
     run_resubmit_inc = 0, 0, 365, 0, 0, 0
     model_status = 'NonOperational'
-    model_basis_time = 1850, 1, 1, 0, 0, 0
+    model_basis_time = 2015, 1, 1, 0, 0, 0
     ancil_reftime = 1850, 1, 1, 0, 0, 0
     run_target_end = 0, 0, 365, 0, 0, 0
     lclimrealyr = .false.
