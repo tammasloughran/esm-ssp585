@@ -1,4 +1,4 @@
-jobname: historical
+jobname: SSP585
 queue: normal
 walltime: 1:40:00
 
@@ -12,7 +12,7 @@ submodels:
       ncpus: 192
       exe: /g/data/access/payu/access-esm/bin/coe/um7.3x
       input:
-        - /g/data/access/payu/access-esm/input/historical/atmosphere
+        - /g/data/access/payu/access-esm/input/ssp-585
         - /g/data/access/payu/access-esm/input/pre-industrial/atmosphere
 
     - name: ocean
@@ -47,7 +47,7 @@ calendar:
     start:
         # Check also 'MODEL_BASIS_TIME' in atmosphere namelists,
         # 'inidate' in ice namelists
-        year: 1850
+        year: 2015
         month: 1
         days: 1
 
