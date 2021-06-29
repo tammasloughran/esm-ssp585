@@ -8,7 +8,7 @@ vars = {
 'PAREXE': 'parexe',
 'PRINT_STATUS': 'PrStatus_Oper',
 'RPSEED': '',
-'RUNID': 'HI-24',
+'RUNID': 'SSP585-01',
 'TYPE': 'NRUN',
 'UM_ATM_NPROCX': '16',
 'UM_ATM_NPROCY': '12',
@@ -23,7 +23,7 @@ vars = {
 'UNIT02': 'prefix',
 'UNIT04': 'STASHC', 
 'UNIT05': 'namelists',
-'UNIT07': 'PI-01.out2',
+'UNIT07': 'SSP-585-01.out2',
 'UNIT08': '/dev/null',
 'UNIT09': 'CONTCNTL',
 'UNIT10': 'xhist',
@@ -40,13 +40,14 @@ vars = {
 
 # Ancillary files
 'ARCLBIOG': 'INPUT/biogenic_351sm.N96L38',
-'BIOMASS': 'INPUT/Bio_1849_2015_ESM1.anc',
+'BIOMASS': 'INPUT/Bio_2014_2101_ssp585_ESM1',
 'CHEMOXID': 'INPUT/sulpc_oxidants_N96_L38',
 'DMSCONC': 'INPUT/DMS_conc.N96',
-'NDEPFIL': 'INPUT/Ndep_1849_2015.anc',
-'OCFFEMIS': 'INPUT/OCFF_1849_2015_ESM1.anc',
-'OZONE': 'INPUT/ozone_1849_2015_ESM1.anc',
-'SOOTEMIS': 'INPUT/BC_hi_1849_2015_ESM1.anc',
-'SULPEMIS': 'INPUT/scycl_1849_2015_ESM1_v4.anc',
+'NDEPFIL': 'INPUT/Ndep_2014_2101_ssp858.anc',
+'OCFFEMIS': 'INPUT/OCFF_2014_2101_ssp585_ESM1.anc',
+'OZONE': 'INPUT/ozone_2014_2101_ssp585_ESM1.anc',
+'SOOTEMIS': 'INPUT/BC_hi_2014_2101_ssp585_ESM1.anc',
+'SULPEMIS': 'INPUT/scycl_2014_2101_ssp585_ESM1_v4.anc',
 'VEGINIT': 'INPUT/cable_vegfunc_N96.anc',
+'CO2EMITS': 'INPUT/CO2_fluxes_ESM_SSP585.anc'
 }

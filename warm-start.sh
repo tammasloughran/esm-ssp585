@@ -15,8 +15,8 @@ if [ $source == "CSIRO" ]; then
     # CSIRO job to copy the warm start from
     project=p66
     user=cm2704
-    export expname=PI-01            # Source experiment - PI pre-industrial, HI historical
-    export source_year=541          # Change this to create different ensemble members
+    export expname=HI-08            # Source experiment - PI pre-industrial, HI historical
+    export source_year=2015          # Change this to create different ensemble members
     export csiro_source=/g/data/$project/$user/archive/$expname/restart
 
     # Call the main warm-start script
