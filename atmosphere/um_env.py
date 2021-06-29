@@ -40,7 +40,7 @@ vars = {
 
 # Ancillary files
 'ARCLBIOG': 'INPUT/biogenic_351sm.N96L38',
-'BIOMASS': 'INPUT/Bio_2014_2101_ssp585_ESM1',
+'BIOMASS': 'INPUT/Bio_2014_2101_ssp585_ESM1.anc',
 'CHEMOXID': 'INPUT/sulpc_oxidants_N96_L38',
 'DMSCONC': 'INPUT/DMS_conc.N96',
 'NDEPFIL': 'INPUT/Ndep_2014_2101_ssp858.anc',

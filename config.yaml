@@ -12,7 +12,7 @@ submodels:
       ncpus: 192
       exe: /g/data/access/payu/access-esm/bin/coe/um7.3x
       input:
-        - /g/data/access/payu/access-esm/input/ssp-585
+        - /g/data/access/payu/access-esm/input/ssp-585/atmosphere
         - /g/data/access/payu/access-esm/input/pre-industrial/atmosphere
 
     - name: ocean
