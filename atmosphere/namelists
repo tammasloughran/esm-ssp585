@@ -77,9 +77,9 @@
     expt_alias = 'ALIAS   '
     run_resubmit_inc = 2*0, 365, 3*0
     model_status = 'NonOperational'
-    model_basis_time = 1850, 2*1, 3*0
-    ancil_reftime = 1850, 2*1, 3*0
-    run_target_end = 2*0, 365, 3*0
+    model_basis_time = 2015, 1, 1, 0, 0, 0
+    ancil_reftime = 1850, 1, 1, 0, 0, 0
+    run_target_end = 0, 0, 365, 0, 0, 0
     lclimrealyr = .false.
     lcal360 = .false.
     ltimer = .true.
@@ -970,7 +970,7 @@
 
 &clmchfcg
     l_clmchfcg = .true.
-    clim_fcg_nyears(1:11) = 5*87, 2*0, 4*87
+    clim_fcg_nyears(1:11) = 87, 87, 87, 87, 87, 0, 0, 87, 87, 87, 87
     clim_fcg_years(1:87,1) = 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022,
                              2023, 2024, 2025, 2026, 2027, 2028, 2029, 2030,
                              2031, 2032, 2033, 2034, 2035, 2036, 2037, 2038,
