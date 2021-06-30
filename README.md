@@ -11,7 +11,7 @@ Create a directory in which to keep the model configurations:
 
     mkdir -p ~/access-esm
     cd ~/access-esm
-    git clone https://github.com/coecms/esm-historical
+    git clone https://github.com/coecms/esm-ssp585
     cd esm-historical
 
 Set up a warm start from a CSIRO run (see the script for details):
