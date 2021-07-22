@@ -106,3 +106,5 @@ mv $ice_restart ${ice_restart}.orig
 
 # Set the date in the cice binary restart file
 scripts/cicedumpdatemodify.py -i ${ice_restart}.orig -o $payu_restart/ice/iced.${start_year}0101 --istep0=0 --time=${secs_realyr}. --time_forc=0.
+
+rm ${ice_restart}.orig
