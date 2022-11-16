@@ -90,7 +90,7 @@
  VEGINIT= 'VEGINIT : $ANCIL_LAND/cable_vegfunc_N96.anc',
  DISTURB= 'DISTURB : ',
  SOOTEMIS= 'SOOTEMIS : $CMIP5ANCIL_AEROSOL/BC_hi_1849_2015_ESM1.anc',
- CO2EMITS= 'CO2EMITS : ',
+ CO2EMITS= 'CO2EMITS : /g/data1a/p66/txz599/data/ancil/CMIP6/CO2_fluxes_ESM_SSP585.anc',
  TPPSOZON= 'TPPSOZON : $PRE_ANCIL_51/qrparm.lfrac',
  LANDFRAC= 'LANDFRAC : $ANCIL_LAND/qrparm.fracmask_n96_sn',
  DUSTSOIL= 'DUSTSOIL : $ANCIL_LAND/qrparm.soil.dust_igbp',

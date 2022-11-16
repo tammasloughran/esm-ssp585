@@ -1,6 +1,14 @@
+# For more details see https://payu.readthedocs.io/en/latest/config.html#config
 jobname: SSP585
+project: p66
 queue: normal
 walltime: 1:40:00
+storage: # For me, payu couldn't properly recognise that p66 is needed. I've added it here.
+    gdata:
+        - hh5
+        - p66
+    scratch:
+        - p66
 
 # note: if laboratory is relative path, it is relative to /scratch/$PROJECT/$USER
 laboratory: access-esm
@@ -12,7 +20,7 @@ submodels:
       ncpus: 192
       exe: /g/data/access/payu/access-esm/bin/coe/um7.3x
       input:
-        - /g/data/access/payu/access-esm/input/ssp-585/atmosphere
+        - /g/data1a/p66/txz599/data/ancil/CMIP6
         - /g/data/access/payu/access-esm/input/pre-industrial/atmosphere
 
     - name: ocean
@@ -56,7 +64,8 @@ calendar:
         months: 0
         days: 0
 
-# Increase to run multiple years in a single submission
+# Increase to run multiple years in a single submission. Only really needed for standalone
+# simulations of submodels. If you change this then you probably need to change the walltime too.
 runspersub: 1
 
 userscripts:
