@@ -392,6 +392,7 @@
     l_phase_lim = .true.
     l_co2_interactive = .true.
     l_co2_emits = .true.
+    l_co2_radiaiton = .true.
     l_co2_tracer = .true.
     l_co2_mass = .true.
     l_tracer_mass = .true.
